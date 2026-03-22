@@ -4,6 +4,9 @@ node_modules/
 # Build output
 dist/
 
+# Electron release
+release/
+
 # Local env files
 .env
 .env.local
@@ -29,3 +32,9 @@ pnpm-debug.log*
 
 # Test coverage
 coverage/
+
+# Vibe coding
+.claude/
+CLAUDE.md
+AGENTS.md
+.impeccable.md

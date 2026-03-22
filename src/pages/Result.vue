@@ -49,20 +49,13 @@
           </span>
         </div>
       </div>
-
-      <!-- Easter Egg -->
-      <transition name="fade">
-        <div v-if="eggMessage" class="mb-6">
-          <p class="font-body text-gray-500 text-sm">{{ eggMessage }}</p>
-        </div>
-      </transition>
     </div>
 
     <!-- Actions -->
     <div class="px-8 pb-8 pt-4 border-t border-gray-100">
       <button
         @click="home"
-        class="w-full py-5 rounded-xl font-body font-medium text-lg mb-3 bg-[#c9b8a8] text-white"
+        class="w-full py-5 rounded-xl font-body font-medium text-lg mb-3 bg-accent text-white"
       >
         <span class="flex items-center justify-center gap-2">
           <Check class="w-5 h-5" />
@@ -95,19 +88,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useGameStore } from '../store/game';
-import { easterEggs } from '../data/activities';
 import { Check, RefreshCw, ArrowLeft } from 'lucide-vue-next';
 import CategoryIcon from '../components/CategoryIcon.vue';
 
 const router = useRouter();
 const store = useGameStore();
 
-const eggMessage = computed(() => {
-  const egg = easterEggs.find(e => e.count === store.rollCount);
-  return egg ? egg.text : '';
+// Guard: Redirect if no activity is selected
+onMounted(() => {
+  if (!store.currentActivity || !store.currentCategory) {
+    router.replace('/');
+  }
 });
 
 const reroll = () => {
@@ -119,16 +113,3 @@ const home = () => {
   router.push('/');
 };
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
-</style>

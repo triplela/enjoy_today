@@ -43,7 +43,7 @@
         @click="startCountdown"
         :disabled="counting"
         class="w-full py-5 rounded-xl font-body font-medium text-lg"
-        :class="counting ? 'bg-gray-100 text-gray-400' : 'bg-[#c9b8a8] text-white'"
+        :class="counting ? 'bg-gray-100 text-gray-400' : 'bg-accent text-white'"
       >
         <template v-if="!counting">
           <span class="flex items-center justify-center gap-2">

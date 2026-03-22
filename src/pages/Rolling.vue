@@ -31,6 +31,8 @@
               <p class="font-body text-gray-900 text-sm mb-1">已选定</p>
               <p class="font-display text-2xl text-gray-900 font-bold">{{ store.currentCategory?.name }}</p>
             </div>
+            <!-- Easter Egg for step 1 -->
+            <p v-if="categoryEggMessage" class="font-body text-gray-500 text-sm mb-2">{{ categoryEggMessage }}</p>
             <p class="font-body text-gray-400 text-sm">准备揭晓具体活动...</p>
           </div>
 
@@ -56,6 +58,8 @@
               <p class="font-body text-gray-500 text-sm mb-1">{{ store.currentCategory?.name }}</p>
               <p class="font-display text-2xl text-gray-900 font-bold">{{ store.currentActivity?.name }}</p>
             </div>
+            <!-- Easter Egg for step 2 -->
+            <p v-if="activityEggMessage" class="font-body text-gray-500 text-sm mb-2">{{ activityEggMessage }}</p>
             <p class="font-body text-gray-900 text-sm">即将揭晓最终结果...</p>
           </div>
 
@@ -85,7 +89,7 @@
             </button>
             <button
               @click="goToPreview"
-              class="flex-1 py-4 rounded-xl font-body font-medium bg-[#c9b8a8] text-white"
+              class="flex-1 py-4 rounded-xl font-body font-medium bg-accent text-white"
             >
               继续
             </button>
@@ -105,7 +109,7 @@
             </button>
             <button
               @click="router.push('/result')"
-              class="flex-1 py-4 rounded-xl font-body font-medium bg-[#c9b8a8] text-white"
+              class="flex-1 py-4 rounded-xl font-body font-medium bg-accent text-white"
             >
               查看结果
             </button>
@@ -120,7 +124,7 @@
 import { ref, onMounted, watch, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useGameStore } from '../store/game';
-import { loadingTexts } from '../data/activities';
+import { loadingTexts, easterEggs } from '../data/activities';
 import { RefreshCw } from 'lucide-vue-next';
 import Dice from '../components/Dice.vue';
 import CategoryIcon from '../components/CategoryIcon.vue';
@@ -139,10 +143,31 @@ const rollStepText = computed(() => {
   return '正在准备...';
 });
 
+// Easter egg messages for each step
+const categoryEggMessage = computed(() => {
+  if (store.rollStage !== 'category') return '';
+  const egg = easterEggs.find(e => e.count === store.rollCount);
+  return egg ? egg.text : '';
+});
+
+const activityEggMessage = computed(() => {
+  if (store.rollStage !== 'activity') return '';
+  const egg = easterEggs.find(e => e.count === store.rollCount);
+  return egg ? egg.text : '';
+});
+
+// Guard: Redirect if no options are set
 onMounted(() => {
+  if (!store.peopleCount || !store.goOut) {
+    router.replace('/');
+    return;
+  }
+
   if (store.rollStage === 'idle') {
     store.rollCategory();
   } else if (store.rollStage === 'category' && store.currentCategory && !store.rolling) {
+    store.rollActivity();
+  } else if (store.rollStage === 'activity' && store.currentCategory && !store.rolling) {
     store.rollActivity();
   }
 });

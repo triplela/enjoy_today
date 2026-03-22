@@ -82,7 +82,7 @@
         :disabled="!isReady"
         :aria-disabled="!isReady"
         class="w-full py-5 px-8 rounded-xl text-lg font-body font-medium transition-all duration-200 disabled:cursor-not-allowed"
-        :class="isReady ? 'bg-[#c9b8a8] text-white' : 'bg-[#e6ddd3] text-gray-900'"
+        :class="isReady ? 'bg-accent text-white' : 'bg-accent-light text-gray-900'"
       >
         <span class="flex items-center justify-center gap-2">
           <Sparkles v-if="isReady" class="w-5 h-5" />

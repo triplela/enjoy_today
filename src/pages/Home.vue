@@ -21,7 +21,7 @@
       <div class="animate-fade-in-up opacity-0">
         <button
           @click="$router.push('/options')"
-          class="py-5 px-10 rounded-xl text-lg bg-[#c9b8a8] text-white font-medium"
+          class="py-5 px-10 rounded-xl text-lg bg-accent text-white font-medium"
         >
           <span class="flex items-center gap-3">
             <Compass class="w-6 h-6" />

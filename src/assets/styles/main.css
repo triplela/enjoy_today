@@ -167,6 +167,16 @@
     font-family: 'Inter', sans-serif;
     font-weight: 400;
   }
+  /* Accent color utilities */
+  .bg-accent {
+    background-color: var(--accent-primary-dark);
+  }
+  .bg-accent-light {
+    background-color: var(--accent-primary-light);
+  }
+  .bg-accent-primary {
+    background-color: var(--accent-primary);
+  }
 }
 
 /* Animation Keyframes */

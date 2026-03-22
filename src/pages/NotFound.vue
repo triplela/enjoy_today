@@ -5,7 +5,7 @@
     <p class="font-body text-gray-500 mb-6">你找的页面好像去流浪了...</p>
     <router-link
       to="/"
-      class="px-6 py-3 bg-[#c9b8a8] text-white rounded-xl font-body font-medium hover:bg-[#b5a598] transition-colors"
+      class="px-6 py-3 bg-accent text-white rounded-xl font-body font-medium hover:bg-[#b5a598] transition-colors"
     >
       返回首页
     </router-link>
