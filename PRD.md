@@ -385,7 +385,7 @@ pnpm dist:linux      # Linux only
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0.0 | 2026-03-23 | Claude | Initial PRD creation |
+| 1.0.0 | 2026-03-23 | triplela | Initial PRD creation |
 
 ---
 
