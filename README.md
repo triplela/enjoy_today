@@ -1,4 +1,4 @@
-# 享受今天 (Enjoy Today)
+# 今日可期 (Enjoy Today)
 
 A mobile-first Vue 3 app that randomly generates activity suggestions based on user preferences with a two-stage dice roll animation. Available as a web app and desktop application (Electron).
 
@@ -37,9 +37,9 @@ Run `pnpm electron:preview` to build the frontend and launch the app as it would
 
 ### Packaged Application
 After running `pnpm dist`, find the executable in the `release/` folder:
-- **Windows**: `release/享受今天 Setup 1.0.0.exe`
-- **macOS**: `release/享受今天-1.0.0.dmg`
-- **Linux**: `release/享受今天-1.0.0.AppImage`
+- **Windows**: `release/今日可期 Setup 1.0.0.exe`
+- **macOS**: `release/今日可期-1.0.0.dmg`
+- **Linux**: `release/今日可期-1.0.0.AppImage`
 
 Double-click the executable to launch. No Node.js or browser required.
 

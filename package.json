@@ -19,6 +19,7 @@
     "dist:linux": "pnpm build && electron-builder --linux"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
     "electron-squirrel-startup": "^1.0.1",
     "lucide-vue-next": "^0.577.0",
     "pinia": "^3.0.4",
@@ -44,7 +45,7 @@
   },
   "build": {
     "appId": "com.enjoytoday.app",
-    "productName": "享受今天",
+    "productName": "今日可期",
     "directories": {
       "output": "release"
     },
@@ -100,7 +101,7 @@
       "installerHeaderIcon": "build/icon.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "享受今天"
+      "shortcutName": "今日可期"
     }
   }
 }

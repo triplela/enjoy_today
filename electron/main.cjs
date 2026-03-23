@@ -59,7 +59,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.cjs'),
       sandbox: true
     },
-    title: '享受今天',
+    title: '今日可期',
     backgroundColor: '#ffffff'
   });
 
